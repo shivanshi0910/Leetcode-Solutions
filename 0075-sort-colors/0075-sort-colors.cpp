@@ -1,6 +1,7 @@
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
+        // DUTCH NATIONAL FLAG ALGORITHM
         int n = nums.size();
         int i = 0 , j = 0 , k = n-1;
         while( j <= k) {
