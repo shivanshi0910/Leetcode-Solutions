@@ -1,9 +1,7 @@
 class Solution {
 public:
     int longestSubarray(vector<int>& nums) {
-        int i=0 , j=0;
-        int n = nums.size();
-        int ans = -1,fl=-1;
+        int i=0 , j=0 , n = nums.size() , ans = -1,fl = -1;
         while(j < n) {
             if(nums[j] == 1) j++;
             else if(fl == -1) {
