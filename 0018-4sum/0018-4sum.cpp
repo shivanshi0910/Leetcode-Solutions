@@ -10,10 +10,7 @@ public:
                 if(j>i+1 && nums[j]==nums[j-1]) continue;
                 int k = j+1 , l = n-1;
                 while(k<l) {
-                    long long sum = nums[i];
-                    sum += nums[j];
-                    sum += nums[k];
-                    sum += nums[l];
+                    long long sum = nums[i]+(long long)(nums[j] + (long long)(nums[k]+nums[l]));
                     if(sum == target) {
                         ans.push_back({nums[i] , nums[j] , nums[k] , nums[l]});
                         k++;l--;
