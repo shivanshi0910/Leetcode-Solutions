@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int bin(int s , int e, int t , vector<int>& nums) {
+       while(s <= e) {
+            int mid = s + (e-s)/2;
+            if(nums[mid] == t) return mid;
+            else if(nums[mid] > t) e = mid - 1;
+            else s = mid + 1;
+        }
+        return -1;
+    }
+    int getpeak(vector<int>& nums) {
+        int n =nums.size();
+        int s = 0 , e = n - 1;
+        while(s <= e) {
+            int mid = s + (e-s)/2;
+            if(nums[s] <= nums[e]) return s;
+            if(nums[mid] <= nums[(mid+1)%n] && nums[mid] <= nums[(mid+n-1)%n]) return mid;
+            else if(nums[mid] >= nums[s]) s = mid + 1;
+            else e = mid - 1;
+        }
+        return -1;
+    }
+    int search(vector<int>& nums, int target) {
+        int peak = getpeak(nums);
+        return max( bin(0 , peak-1 , target , nums) , bin(peak , nums.size()-1 , target , nums) );
+    }
+};
